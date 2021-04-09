@@ -47,7 +47,7 @@ che permette di stampare sulla console la rappresentazione a stringa dei cammini
 ```
 eprint
 ```
-che permette di stampare sulla console una rappresentazione a stringa di tutti i nodi registrati fino a quel momento.
+che permette di stampare sulla console una rappresentazione a stringa di tutti gli archi registrati fino a quel momento.
 ```
 reset
 ```
