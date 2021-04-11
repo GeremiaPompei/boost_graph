@@ -49,6 +49,10 @@ eprint
 ```
 che permette di stampare sulla console una rappresentazione a stringa di tutti gli archi registrati fino a quel momento.
 ```
+rprint
+```
+che permette di stampare sulla console la root del grafo.
+```
 reset
 ```
 che permette di resettare i valori del grafo.
