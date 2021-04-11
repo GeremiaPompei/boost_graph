@@ -15,6 +15,7 @@ void printHelpMenu()
     cout << " > root <ROOT>                per inizializzare la radice dei nodi del grafo." << endl;
     cout << " > spprint                    per stampare i cammini minimi del grafo." << endl;
     cout << " > eprint                     per stampare gli archi del grafo." << endl;
+    cout << " > rprint                     per stampare la root del grafo." << endl;
     cout << " > reset                      per inizializzare il grafo." << endl;
     cout << " > exit                       per uscire." << endl;
     cout << endl;
@@ -67,6 +68,8 @@ int main() {
             cout << g->spString() << endl;
         } else if(in == "eprint")
             cout << g->edgesString() << endl;
+        else if(in == "rprint")
+            cout << g->getRoot() << endl;
         else if(in == "reset")
             g = new Graph();
         else if(v.size() >= 2 && v[0] == "root")

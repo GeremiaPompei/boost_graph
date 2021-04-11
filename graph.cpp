@@ -6,7 +6,10 @@
 template <typename T>
 int findIndex(vector<T> v, T el) 
 {
-    return find(v.begin(), v.end(), el) - v.begin();
+    auto t = find(v.begin(), v.end(), el);
+    if(t == v.end())
+        return -1;
+    return t - v.begin();
 }
 
 /**
@@ -35,7 +38,8 @@ void Graph::addEdge(Edge e)
  */
 void Graph::setRoot(string root) {
     int r = findIndex(_nodes, root);
-    _root = vertex(r, _graph);
+    if(r != -1)
+        _root = vertex(r, _graph);
 }
 
 /**
@@ -79,7 +83,7 @@ const string Graph::spString()
 {
     string res = "distances and parents\n";
     graph_traits<graph_t>::vertex_iterator vi, vend;
-    for (boost::tie(vi, vend) = vertices(_graph); vi != vend; ++vi) {
+    for (tie(vi, vend) = vertices(_graph); vi != vend; ++vi) {
         res += "distance(" + _nodes[*vi] + ") = " + to_string(_distances[*vi]) + ", " + "parent(" + _nodes[*vi] + ") = " + _nodes[_parents[*vi]] + "\n";
     }
     return res;
@@ -94,4 +98,18 @@ const string Graph::edgesString()
     for(Edge e : _edges)
         res += e.toString() + "\n";
     return res;
+}
+
+/**
+ * Getter della root.
+ */
+const string Graph::getRoot()
+{
+    this->shortestPath();
+    graph_traits<graph_t>::vertex_iterator vi, vend;
+    for (tie(vi, vend) = vertices(_graph); vi != vend; ++vi) {
+        if(_distances[*vi] == 0 && _nodes[*vi] == _nodes[_parents[*vi]])
+            return _nodes[*vi];
+    }
+    return "NO ROOT";
 }

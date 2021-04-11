@@ -82,6 +82,11 @@ public:
      * Metodo utile ad avere una rappresentazione a stringa degli archi.
      */
     const string edgesString();
+    
+    /**
+     * Getter della root.
+     */
+    const string getRoot();
 };
 
 #endif
